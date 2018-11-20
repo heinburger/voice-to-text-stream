@@ -30,11 +30,10 @@ function testSpeech() {
     diagnosticPara.innerHTML += ' ' + speechResult;
     console.log('Confidence: ' + event.results[next][0].confidence);
     next++;
-    recognition.start()
   }
 
   recognition.onspeechend = function() {
-    recognition.start()
+    // recognition.start()
   }
 
   recognition.onerror = function(event) {
@@ -42,7 +41,7 @@ function testSpeech() {
     stopBtn.disabled = true;
     startBtn.disabled = false;
     startBtn.textContent = 'Start';
-    diagnosticPara.textContent = 'Error occurred in recognition: ' + event.error;
+    console.log(event.error);
   }
 
   recognition.onaudiostart = function(event) {
