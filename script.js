@@ -15,6 +15,7 @@ function testSpeech() {
   var recognition = new SpeechRecognition();
   recognition.lang = 'de-DE';
   recognition.continuous = true;
+  recognition.interimResults = true;
 
   recognition.start();
   stopBtn.addEventListener('click', function() {
