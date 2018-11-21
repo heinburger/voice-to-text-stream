@@ -67,18 +67,17 @@ const languages = [
 
 class Languages extends Component {
   render() {
-    const values = []
-
-    console.log(values)
     return (
-      <div className="Languages">
-        <select onChange={ (lang) => this.props.selectLang(lang) }>
+      <div style={{ flex: '0 0 auto'}}>
+        <select
+          disabled={ this.props.disabled }
+          onChange={ (e) => this.props.selectLang(e.target.value) }
+          value={ this.props.selectedLang }
+        >
         {
           languages.map((lang) => {
             return lang.map((l, i) => i > 0 && (
-              <option selected={ l[0] === this.props.selectedLang } value={l[0]}>
-                {l[0]}
-              </option>
+              <option key={ l[0] } value={ l[0] }>{ l[0] }</option>
             ))
           })
         }
