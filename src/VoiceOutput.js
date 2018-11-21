@@ -7,9 +7,8 @@ class VoiceOutput extends Component {
         <div style={{ color: 'gray', flex: '0 0 auto' }}>{ this.props.guess || '...'}</div>
         <textarea
           style={{ fontSize: '24px', width: '100%', flex: '1 1 auto' }}
-          value={ this.props.output }
+          defaultValue={ this.props.output }
           onChange={ () => false } />
-
       </div>
     );
   }
