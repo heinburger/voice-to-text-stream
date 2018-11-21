@@ -56,6 +56,9 @@ function testSpeech() {
   }
 
   recognition.onend = function(event) {
+    stopBtn.disabled = true;
+    startBtn.disabled = false;
+    startBtn.textContent = 'Start';
       //Fired when the speech recognition service has disconnected.
       console.log('SpeechRecognition.onend');
   }
