@@ -1,14 +1,15 @@
 {
-  "main.css": "/voice-to-text-stream/static/css/main.8543d070.chunk.css",
-  "main.js": "/voice-to-text-stream/static/js/main.422fa206.chunk.js",
-  "main.js.map": "/voice-to-text-stream/static/js/main.422fa206.chunk.js.map",
-  "static/js/1.e490b339.chunk.js": "/voice-to-text-stream/static/js/1.e490b339.chunk.js",
-  "static/js/1.e490b339.chunk.js.map": "/voice-to-text-stream/static/js/1.e490b339.chunk.js.map",
+  "main.css": "/voice-to-text-stream/static/css/main.acc18fc3.chunk.css",
+  "main.js": "/voice-to-text-stream/static/js/main.2ed5d57e.chunk.js",
+  "main.js.map": "/voice-to-text-stream/static/js/main.2ed5d57e.chunk.js.map",
+  "static/css/1.3400b922.chunk.css": "/voice-to-text-stream/static/css/1.3400b922.chunk.css",
+  "static/js/1.6155ee8b.chunk.js": "/voice-to-text-stream/static/js/1.6155ee8b.chunk.js",
+  "static/js/1.6155ee8b.chunk.js.map": "/voice-to-text-stream/static/js/1.6155ee8b.chunk.js.map",
   "runtime~main.js": "/voice-to-text-stream/static/js/runtime~main.74f9d599.js",
   "runtime~main.js.map": "/voice-to-text-stream/static/js/runtime~main.74f9d599.js.map",
-  "static/media/logo.svg": "/voice-to-text-stream/static/media/logo.dff20d8c.svg",
-  "static/css/main.8543d070.chunk.css.map": "/voice-to-text-stream/static/css/main.8543d070.chunk.css.map",
+  "static/css/1.3400b922.chunk.css.map": "/voice-to-text-stream/static/css/1.3400b922.chunk.css.map",
+  "static/css/main.acc18fc3.chunk.css.map": "/voice-to-text-stream/static/css/main.acc18fc3.chunk.css.map",
   "index.html": "/voice-to-text-stream/index.html",
-  "precache-manifest.53f2f2c03a2b6e8c6064b727f4b8923c.js": "/voice-to-text-stream/precache-manifest.53f2f2c03a2b6e8c6064b727f4b8923c.js",
+  "precache-manifest.e0c58325e22a13e631ee6d6255a74ba5.js": "/voice-to-text-stream/precache-manifest.e0c58325e22a13e631ee6d6255a74ba5.js",
   "service-worker.js": "/voice-to-text-stream/service-worker.js"
 }
