@@ -100,7 +100,9 @@ class SpeechRecognitionStore {
     this.appStore.view.startRecording();
   }
   stopRecognition = () => {
-    this.appStore.view.addText(this.guess);
+    if (this.guess) {
+      this.appStore.view.addText(this.guess + ' ');
+    }
     this.appStore.view.setGuessText('');
     this.output = '';
     this.guess = '';
