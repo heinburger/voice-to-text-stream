@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/voice-to-text-stream/precache-manifest.e0c58325e22a13e631ee6d6255a74ba5.js"
+  "/voice-to-text-stream/precache-manifest.d149831567a391c12563a8e4b75afda0.js"
 );
 
 workbox.clientsClaim();

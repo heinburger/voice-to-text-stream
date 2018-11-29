@@ -1,15 +1,15 @@
 {
-  "main.css": "/voice-to-text-stream/static/css/main.acc18fc3.chunk.css",
-  "main.js": "/voice-to-text-stream/static/js/main.2ed5d57e.chunk.js",
-  "main.js.map": "/voice-to-text-stream/static/js/main.2ed5d57e.chunk.js.map",
+  "main.css": "/voice-to-text-stream/static/css/main.d78f2d62.chunk.css",
+  "main.js": "/voice-to-text-stream/static/js/main.9df9252a.chunk.js",
+  "main.js.map": "/voice-to-text-stream/static/js/main.9df9252a.chunk.js.map",
   "static/css/1.3400b922.chunk.css": "/voice-to-text-stream/static/css/1.3400b922.chunk.css",
   "static/js/1.6155ee8b.chunk.js": "/voice-to-text-stream/static/js/1.6155ee8b.chunk.js",
   "static/js/1.6155ee8b.chunk.js.map": "/voice-to-text-stream/static/js/1.6155ee8b.chunk.js.map",
   "runtime~main.js": "/voice-to-text-stream/static/js/runtime~main.74f9d599.js",
   "runtime~main.js.map": "/voice-to-text-stream/static/js/runtime~main.74f9d599.js.map",
   "static/css/1.3400b922.chunk.css.map": "/voice-to-text-stream/static/css/1.3400b922.chunk.css.map",
-  "static/css/main.acc18fc3.chunk.css.map": "/voice-to-text-stream/static/css/main.acc18fc3.chunk.css.map",
+  "static/css/main.d78f2d62.chunk.css.map": "/voice-to-text-stream/static/css/main.d78f2d62.chunk.css.map",
   "index.html": "/voice-to-text-stream/index.html",
-  "precache-manifest.e0c58325e22a13e631ee6d6255a74ba5.js": "/voice-to-text-stream/precache-manifest.e0c58325e22a13e631ee6d6255a74ba5.js",
+  "precache-manifest.d149831567a391c12563a8e4b75afda0.js": "/voice-to-text-stream/precache-manifest.d149831567a391c12563a8e4b75afda0.js",
   "service-worker.js": "/voice-to-text-stream/service-worker.js"
 }
