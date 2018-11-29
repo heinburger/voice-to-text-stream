@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-
 const languages = [
   ['Afrikaans',       ['af-ZA']],
   ['Bahasa Indonesia',['id-ID']],
@@ -65,26 +63,32 @@ const languages = [
   ['Lingua latīna',   ['la']]
 ];
 
-class Languages extends Component {
-  render() {
-    return (
-      <div style={{ flex: '0 0 auto'}}>
-        <select
-          disabled={ this.props.disabled }
-          onChange={ (e) => this.props.selectLang(e.target.value) }
-          value={ this.props.selectedLang }
-        >
-        {
-          languages.map((lang) => {
-            return lang.map((l, i) => i > 0 && (
-              <option key={ l[0] } value={ l[0] }>{ l[0] }</option>
-            ))
-          })
-        }
-        </select>
-      </div>
-    );
+const langTags = [];
+const langNames = [];
+
+languages.forEach((lang) => {
+  langNames.push(lang[0])
+  lang.forEach((l, i) => {
+    if (i > 0) {
+      langTags.push(l[0])
+    }
+  })
+})
+
+export const supportedLangs = langTags;
+
+export const getLang = () => {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    return window.localStorage.getItem('lang') || 'de-DE'
+  } else {
+    console.error('localStorage is not supported')
+  }
+};
+
+export const setLang = (lang = 'de-DE') => {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    window.localStorage.setItem('lang', lang)
+  } else {
+    console.error('localStorage is not supported')
   }
 }
-
-export default Languages;
