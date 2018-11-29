@@ -21,6 +21,7 @@ class VoiceOutput extends Component {
           onChange={ () => false } />
         <textarea
           ref='output'
+          placeholder='...'
           style={{ backgroundColor: 'whitesmoke', maxWidth: '700px', fontSize: '24px', width: '100%', flex: '1 1 70%', padding: '7px' }}
           value={ text }
           onChange={ this.handleOnChange }

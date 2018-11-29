@@ -16,8 +16,8 @@ class Languages extends Component {
           value={ lang }
         >
         {
-          supportedLangs.map((lang) => (
-            <option key={ lang } value={ lang }>{ lang }</option>
+          supportedLangs.map(({name, tag}) => (
+            <option key={ tag } value={ tag }>{ name }</option>
           ))
         }
         </select>

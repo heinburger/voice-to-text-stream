@@ -63,19 +63,20 @@ const languages = [
   ['Lingua latīna',   ['la']]
 ];
 
-const langTags = [];
-const langNames = [];
+const langs = [];
 
 languages.forEach((lang) => {
-  langNames.push(lang[0])
   lang.forEach((l, i) => {
     if (i > 0) {
-      langTags.push(l[0])
+      langs.push({
+        name: l[1] ? `${lang[0]} (${l[1]})` : lang[0],
+        tag: l[0]
+      })
     }
   })
 })
 
-export const supportedLangs = langTags;
+export const supportedLangs = langs;
 
 export const getLang = () => {
   if (typeof window !== 'undefined' && window.localStorage) {

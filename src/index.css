@@ -22,3 +22,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
