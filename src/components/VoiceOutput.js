@@ -11,16 +11,17 @@ class VoiceOutput extends Component {
       this.refs.output.scrollTop = this.refs.output.scrollHeight;
     }
     return (
-      <div style={{ padding: '15px', flex: '1 1 auto', display: 'flex', height: '100%', flexDirection: 'column' }}>
+      <div style={{ padding: '0 20px', flex: '1 1 auto', display: 'flex', alignItems: 'center', height: '100%', maxHeight: '500px', flexDirection: 'column' }}>
         <textarea
           ref='guess'
           disabled
-          style={{ fontSize: '24px', width: '100%', flex: '1 1 30%' }}
+          placeholder='guesses show up here... say things like "new paragraph" or "period" for punctuation'
+          style={{ backgroundColor: 'papayawhip', maxWidth: '700px', fontSize: '24px', width: '100%', flex: '1 1 30%', padding: '7px' }}
           value={ guessText }
           onChange={ () => false } />
         <textarea
           ref='output'
-          style={{ fontSize: '24px', width: '100%', flex: '1 1 70%' }}
+          style={{ backgroundColor: 'whitesmoke', maxWidth: '700px', fontSize: '24px', width: '100%', flex: '1 1 70%', padding: '7px' }}
           value={ text }
           onChange={ this.handleOnChange }
           onFocus={ this.handleOnFocus } />
@@ -28,7 +29,6 @@ class VoiceOutput extends Component {
     );
   }
   handleOnChange = (e) => {
-    console.log('changing')
     const { recording, setText } = this.props.view;
     const { stopRecognition } = this.props.speechRecognition;
     if (recording) {
@@ -39,11 +39,12 @@ class VoiceOutput extends Component {
 
   }
   handleOnFocus = (e) => {
-    console.log('focusing')
     const { recording } = this.props.view;
     const { stopRecognition } = this.props.speechRecognition;
     if (recording) {
       stopRecognition();
+    } else {
+      e.target.select()
     }
   }
 }

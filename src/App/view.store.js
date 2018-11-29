@@ -8,7 +8,7 @@ class ViewStore {
   recording = false;
   editing = false;
   text = '';
-  guessText = '...';
+  guessText = '';
 
   // COMPUTEDS..................................................................
   get langSelectDisabled() {
@@ -24,6 +24,9 @@ class ViewStore {
   }
   setText = (text) => {
     this.text = text;
+  }
+  clearText = () => {
+    this.text = '';
   }
   addText = (text) => {
     this.text = this.text + text;
@@ -41,6 +44,7 @@ decorate(ViewStore, {
   langSelectDisabled: computed,
   toggleRecording: action,
   setText: action,
+  clearText: action,
   setGuessText: action,
 });
 

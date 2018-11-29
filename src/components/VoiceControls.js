@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 
+import './VoiceControls.css';
+
 class VoiceControls extends Component {
   render() {
-    const { recording } = this.props.view;
+    const { recording, clearText, text } = this.props.view;
     const { startRecognition, stopRecognition } = this.props.speechRecognition;
     return (
-      <div style={{ flex: '0 0 auto'}}>
+      <div style={{ flex: '0 0 auto' }}>
+        {recording && (
+          <span className='circle' />
+        )}
         <button
+          className='button'
           disabled={ recording }
           onClick={ startRecognition }>Start</button>
         <button
+          className='button'
           disabled={ !recording }
           onClick={ stopRecognition }>Stop</button>
-        {recording && (
-          <span style={{ color: 'red' }}>recording</span>
-        )}
+        <button
+          className='button'
+          disabled={ !text }
+          onClick={ clearText }>Clear</button>
       </div>
     );
   }

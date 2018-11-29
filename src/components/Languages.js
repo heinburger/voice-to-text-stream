@@ -10,6 +10,7 @@ class Languages extends Component {
     return (
       <div style={{ flex: '0 0 auto'}}>
         <select
+          style={{ margin: '3px' }}
           disabled={ langSelectDisabled }
           onChange={ (e) => setLang(e.target.value) }
           value={ lang }
