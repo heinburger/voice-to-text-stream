@@ -77,19 +77,3 @@ languages.forEach((lang) => {
 })
 
 export const supportedLangs = langs;
-
-export const getLang = () => {
-  if (typeof window !== 'undefined' && window.localStorage) {
-    return window.localStorage.getItem('lang') || 'de-DE'
-  } else {
-    console.error('localStorage is not supported')
-  }
-};
-
-export const setLang = (lang = 'de-DE') => {
-  if (typeof window !== 'undefined' && window.localStorage) {
-    window.localStorage.setItem('lang', lang)
-  } else {
-    console.error('localStorage is not supported')
-  }
-}
