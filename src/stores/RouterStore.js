@@ -15,7 +15,7 @@ class RouterStore {
   }
 
   // OBSERVABLES................................................................
-  pathname = ''
+  pathname = '';
 
   // COMPUTEDS..................................................................
   // get pathname() {
@@ -28,10 +28,11 @@ class RouterStore {
     if (this.appStore.view.showTempDrawer && this.appStore.view.tempDrawerOpen) {
       this.appStore.view.closeTempDrawer();
     }
-  }
+  };
+
   setPathname = (pathname) => {
     this.pathname = pathname;
-  }
+  };
 }
 
 decorate(RouterStore, {

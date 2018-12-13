@@ -18,26 +18,22 @@ class ViewStore {
     return this.screenWidth < 960;
   }
 
-  get title() {
-    return capitalize(this.appStore.router.pathname.split('/')[1])
-  }
-
   // ACTIONS....................................................................
   onScreenResize = () => {
     this.screenWidth = getScreenWidth();
-  }
+  };
 
   toggleTempDrawer = () => {
     this.tempDrawerOpen = !this.tempDrawerOpen;
-  }
+  };
 
   closeTempDrawer = () => {
     this.tempDrawerOpen = false;
-  }
+  };
 
   toggleLightTheme = () => {
     this.lightThemeActive = !this.lightThemeActive;
-  }
+  };
 }
 
 decorate(ViewStore, {

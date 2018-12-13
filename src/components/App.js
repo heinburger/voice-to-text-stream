@@ -11,7 +11,7 @@ import Body from './Body';
 const App = ({ store }) => (
   <StoreProvider store={store}>
     <>
-      {process.env !== 'production' && <DevTools />}
+      {process.env.NODE_ENV !== 'production' && <DevTools />}
       <Theme>
         <Wrapper>
           <Bar><Toolbar /></Bar>

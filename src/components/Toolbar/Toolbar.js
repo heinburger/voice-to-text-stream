@@ -6,15 +6,13 @@ import Title from './Title';
 import ToggleDrawerButton from './ToggleDrawerButton';
 import ToggleLightThemeButton from './ToggleLightThemeButton';
 import GithubLinkButton from './GithubLinkButton';
-import Search from '../Search';
 
-const Toolbar = ({ view }) => (
+const Toolbar = ({ view, translate }) => (
   <>
     {view.showTempDrawer
       ? <ToggleDrawerButton />
       : <React.Fragment />}
-    <Title title={view.title} />
-    <Search />
+    <Title title={translate.getText('Voice to text')} />
     <ToggleLightThemeButton />
     <GithubLinkButton />
   </>
@@ -24,4 +22,4 @@ Toolbar.propTypes = {
   view: PropTypes.object.isRequired,
 };
 
-export default inject('view')(observer(Toolbar));
+export default inject('view', 'translate')(observer(Toolbar));

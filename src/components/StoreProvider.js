@@ -7,6 +7,8 @@ const StoreProvider = ({ store, children }) => (
   <MobxProvider
     view={store.view}
     router={store.router}
+    translate={store.translate}
+    settings={store.settings}
   >
     {children}
   </MobxProvider>
