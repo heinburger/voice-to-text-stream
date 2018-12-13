@@ -15,10 +15,10 @@ class SettingsStore {
   // ACTIONS....................................................................
   setLanguage = (lang) => {
     setLang(lang);
-    this.lang = lang;
-    if (this.recognition) {
-      this.recognition.lang = lang;
-    }
+    this.language = lang;
+    // if (this.recognition) {
+    //   this.recognition.lang = lang;
+    // }
   }
 }
 

@@ -1,7 +1,6 @@
 import { decorate, observable, action, computed } from 'mobx';
 
 import { getScreenWidth } from '../utils/browser';
-import { capitalize } from '../utils/text';
 
 class ViewStore {
   constructor(appStore) {

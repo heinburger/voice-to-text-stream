@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import SelectLang from './SelectLang';
-import ViewStore from '../../stores/ViewStore';
+import SettingsStore from '../../stores/SettingsStore';
 
 it('renders without crashing', () => {
-  shallow(<SelectLang view={ new ViewStore() } />);
+  shallow(<SelectLang settings={ new SettingsStore() } />);
 });

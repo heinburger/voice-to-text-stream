@@ -41,10 +41,10 @@ const Header = ({ classes, router }) => (
       noWrap
       onClick={() => router.goTo('/')}
     >
-      Boilerplate
+      Settings
     </Typography>
     <Typography className={classes.caption} variant='caption' noWrap>
-      v0.2.0
+      voice-to-text-stram v0.2.0
     </Typography>
   </div>
 );

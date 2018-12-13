@@ -9,6 +9,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+import { supportedLangs } from '../../utils/language'
+
 const styles = theme => ({
   formControl: {
     margin: theme.spacing.unit,
@@ -37,9 +39,9 @@ class SelectLang extends React.Component {
           ref={ref => {
             this.InputLabelRef = ref;
           }}
-          htmlFor="outlined-age-simple"
+          htmlFor="outlined-language-simple"
         >
-          Age
+          Language
         </InputLabel>
         <Select
           value={settings.language}
@@ -47,14 +49,16 @@ class SelectLang extends React.Component {
           input={
             <OutlinedInput
               labelWidth={this.state.labelWidth}
-              name="age"
-              id="outlined-age-simple"
+              name="language"
+              id="outlined-language-simple"
             />
           }
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {
+            supportedLangs.map(({name, tag}) => (
+              <MenuItem key={ tag } value={ tag }>{ name }</MenuItem>
+            ))
+          }
         </Select>
       </StyledFormControl>
     );
@@ -66,7 +70,7 @@ class SelectLang extends React.Component {
 }
 
 SelectLang.propTypes = {
-  router: PropTypes.object.isRequired,
+  settings: PropTypes.object.isRequired,
 }
 
 export default inject('settings')(observer(SelectLang));
