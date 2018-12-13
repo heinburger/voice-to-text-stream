@@ -12,7 +12,7 @@ const Toolbar = ({ view, translate }) => (
     {view.showTempDrawer
       ? <ToggleDrawerButton />
       : <React.Fragment />}
-    <Title title={translate.getText('Voice to text')} />
+    <Title />
     <ToggleLightThemeButton />
     <GithubLinkButton />
   </>

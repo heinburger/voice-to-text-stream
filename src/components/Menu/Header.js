@@ -5,47 +5,41 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
-  drawerHeader: Object.assign({}, theme.mixins.toolbar, {
+  wrapper: Object.assign({}, theme.mixins.toolbar, {
     display: 'flex',
-    flexDirection: 'column',
-    padding: `0 ${theme.spacing.unit * 2}px`,
-    overflow: 'hidden',
   }),
-  headline: {
-    flex: '1 1 auto',
-    cursor: 'pointer',
+  drawerHeader: Object.assign({}, theme.mixins.gutters(), {
     display: 'flex',
-    color: theme.palette.text.secondary,
     alignItems: 'center',
-    paddingBottom: 0,
-    marginTop: `${theme.spacing.unit * 0.5}px`,
-    lineHeight: '1.25rem',
+  }),
+  caption: {
+    paddingLeft: `${theme.spacing.unit}px`,
+    paddingTop: `${theme.spacing.unit / 2}px`,
+  },
+  h6: {
+    cursor: 'pointer',
     '&:hover': {
       color: theme.palette.secondary[theme.palette.type],
       textDecoration: 'underline'
     }
   },
-  caption: {
-    flex: '1 1 auto',
-  },
-  icon: {
-    marginRight: `${theme.spacing.unit}px`,
-  },
 });
 
 const Header = ({ classes, router }) => (
-  <div className={classes.drawerHeader}>
-    <Typography
-      className={classes.headline}
-      variant='h5'
-      noWrap
-      onClick={() => router.goTo('/')}
-    >
-      Settings
-    </Typography>
-    <Typography className={classes.caption} variant='caption' noWrap>
-      voice-to-text-stram v0.2.0
-    </Typography>
+  <div className={classes.wrapper}>
+    <div className={classes.drawerHeader}>
+      <Typography
+        variant='h6'
+        className={classes.h6}
+        noWrap
+        onClick={() => router.goTo('/')}
+      >
+        Voice to text
+      </Typography>
+      <Typography className={classes.caption} variant='caption' noWrap>
+        v0.2.0
+      </Typography>
+    </div>
   </div>
 );
 

@@ -1,11 +1,13 @@
 import React from 'react';
+import Divider from '@material-ui/core/Divider';
 import Header from './Header';
-import SelectLang from './SelectLang';
+import Settings from './Settings';
 
 const Menu = () => (
   <>
     <Header />
-    <SelectLang />
+    <Divider />
+    <Settings />
   </>
 );
 
