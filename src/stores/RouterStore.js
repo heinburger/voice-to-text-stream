@@ -18,9 +18,6 @@ class RouterStore {
   pathname = '';
 
   // COMPUTEDS..................................................................
-  // get pathname() {
-  //   return this.history.location.pathname;
-  // }
 
   // ACTIONS....................................................................
   goTo = (route = '/') => {

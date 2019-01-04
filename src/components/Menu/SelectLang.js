@@ -12,6 +12,7 @@ import { supportedLangs } from '../../utils/language'
 const styles = theme => ({
   formControl: {
     width: '100%',
+    marginTop: `${theme.spacing.unit}px`,
   },
 });
 
