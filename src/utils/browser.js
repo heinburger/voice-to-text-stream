@@ -55,3 +55,7 @@ export const setLocalStorageByKey = (key, value) => {
   }
   return true;
 }
+
+export const audioSupported = () => {
+  return typeof window.navigator !== 'undefined' && !!window.navigator.MediaDevices;
+}

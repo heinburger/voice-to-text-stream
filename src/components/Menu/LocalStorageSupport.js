@@ -26,6 +26,7 @@ class LocalStorageSupport extends React.Component {
     return (
       <StyledTypography>
         {translate.getText('localStorage support')}
+        {settings.localStorageSupported ? ' 👍' : ' 👎'}
       </StyledTypography>
     );
   }

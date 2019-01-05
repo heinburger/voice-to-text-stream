@@ -3,7 +3,8 @@ import {
   localStorageSupported,
   getLocalStorageByKey,
   setLocalStorageByKey,
-  speechRecognitionSupported
+  speechRecognitionSupported,
+  audioSupported,
 } from '../utils/browser'
 
 const DEFAULT_LANGUAGE = 'de-DE';
@@ -14,6 +15,7 @@ class SettingsStore {
     this.appStore = appStore;
     this.localStorageSupported = localStorageSupported();
     this.speechRecognitionSupported = speechRecognitionSupported();
+    this.audioSupported = audioSupported();
   }
 
   // OBSERVABLES................................................................

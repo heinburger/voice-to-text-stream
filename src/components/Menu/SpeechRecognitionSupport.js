@@ -26,6 +26,7 @@ class SpeechRecognitionSupport extends React.Component {
     return (
       <StyledTypography>
         {translate.getText('Speech recognition support')}
+        {settings.speechRecognitionSupported ? ' 👍' : ' 👎'}
       </StyledTypography>
     );
   }
