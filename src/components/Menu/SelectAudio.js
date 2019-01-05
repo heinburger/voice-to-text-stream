@@ -14,18 +14,16 @@ const styles = theme => ({
   },
 });
 
-const supportedAudio = ['default', 'headphones', 'blah'];
-
 const StyledFormControl = withStyles(styles)(({ classes, ...rest }) => (
   <FormControl className={classes.formControl} {...rest} />
 ));
 
 class SelectAudio extends React.Component {
   render() {
-    const { settings } = this.props
+    const { settings, translate } = this.props
     return (
       <StyledFormControl>
-        <InputLabel htmlFor="audio-simple">Audio source</InputLabel>
+        <InputLabel htmlFor="audio-simple">{ translate.getText('Audio source') }</InputLabel>
         <Select
           value={settings.audioSource}
           onChange={this._handleChange}
@@ -34,9 +32,10 @@ class SelectAudio extends React.Component {
             id: 'audio-simple',
           }}
         >
+          <MenuItem key='default' value='default'>{ translate.getText('Default') }</MenuItem>
           {
-            supportedAudio.map((audio) => (
-              <MenuItem key={ audio } value={ audio }>{ audio }</MenuItem>
+            settings.audioDevices.map((device) => (
+              <MenuItem key={ device.deviceId } value={ device.deviceId }>{ device.label || translate.getText('Unknown') }</MenuItem>
             ))
           }
         </Select>
@@ -51,6 +50,7 @@ class SelectAudio extends React.Component {
 
 SelectAudio.propTypes = {
   settings: PropTypes.object.isRequired,
+  translate: PropTypes.object.isRequired,
 }
 
-export default inject('settings')(observer(SelectAudio));
+export default inject('settings', 'translate')(observer(SelectAudio));

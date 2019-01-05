@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import SelectLang from './SelectLang';
 import LocalStorageSupport from './LocalStorageSupport';
 import SpeechRecognitionSupport from './SpeechRecognitionSupport';
+import AudioSupport from './AudioSupport';
 import SelectAudio from './SelectAudio';
 
 const styles = theme => ({
@@ -13,9 +14,10 @@ const styles = theme => ({
 
 const Settings = ({ classes }) => (
   <div className={classes.wrapper}>
-    <SelectLang />
     <LocalStorageSupport />
     <SpeechRecognitionSupport />
+    <SelectLang />
+    <AudioSupport />
     <SelectAudio />
   </div>
 );

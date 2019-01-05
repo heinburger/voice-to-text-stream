@@ -18,6 +18,18 @@ class TranslateStore {
     'Speech recognition support': {
       'de-DE': 'Spracherkennungsunterstützung',
     },
+    'Audio support': {
+      'de-DE': 'Audio-Unterstützung',
+    },
+    'Audio source': {
+      'de-DE': 'Audio quelle',
+    },
+    'Default': {
+      'de-DE': 'Standard',
+    },
+    'Unknown': {
+      'de-DE': 'Unbekannte',
+    },
   };
 
   getText = (key= '') => {

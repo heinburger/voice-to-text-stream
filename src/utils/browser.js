@@ -27,7 +27,7 @@ export const getBrowserSpeechRecognition = () => {
            window.msSpeechRecognition ||
            window.oSpeechRecognition;
   } else {
-    console.error('Speech recognition is not supported');
+    console.log('Speech recognition is not supported');
   }
 }
 
@@ -40,7 +40,7 @@ export const getLocalStorageByKey = (key) => {
   try {
     value = window.localStorage.getItem(key);
   } catch (e) {
-    console.error(e)
+    console.log(e)
     return null;
   }
   return value;
@@ -50,12 +50,32 @@ export const setLocalStorageByKey = (key, value) => {
   try {
     window.localStorage.setItem(key, value);
   } catch (e) {
-    console.error(e)
+    console.log(e)
     return false;
   }
   return true;
 }
 
 export const audioSupported = () => {
-  return typeof window.navigator !== 'undefined' && !!window.navigator.MediaDevices;
+  return typeof window.navigator !== 'undefined' && !!window.navigator.mediaDevices;
+}
+
+export async function getAudioDevices() {
+  try {
+    let devices = await window.navigator.mediaDevices.enumerateDevices();
+    return devices.filter((d) => d.kind === 'audioinput' && d.deviceId !== 'default');
+  } catch (e) {
+    console.log(e);
+    return [];
+  }
+}
+
+export const setAudioDeviceListener = (listener = () => false) => {
+  try {
+    window.navigator.mediaDevices.ondevicechange = listener
+    return true
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
 }

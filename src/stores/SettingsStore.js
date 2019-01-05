@@ -5,10 +5,11 @@ import {
   setLocalStorageByKey,
   speechRecognitionSupported,
   audioSupported,
+  getAudioDevices,
+  setAudioDeviceListener,
 } from '../utils/browser'
 
 const DEFAULT_LANGUAGE = 'de-DE';
-const DEFAULT_AUDIO_SOURCE = 'default';
 
 class SettingsStore {
   constructor(appStore) {
@@ -16,11 +17,15 @@ class SettingsStore {
     this.localStorageSupported = localStorageSupported();
     this.speechRecognitionSupported = speechRecognitionSupported();
     this.audioSupported = audioSupported();
+    const updateAudioDevices = () => getAudioDevices().then(this.setAudioDevices);
+    updateAudioDevices();
+    setAudioDeviceListener(updateAudioDevices);
   }
 
   // OBSERVABLES................................................................
   language = getLocalStorageByKey('language') || DEFAULT_LANGUAGE;
-  audioSource = DEFAULT_AUDIO_SOURCE;
+  audioSource = 'default';
+  audioDevices = [];
 
   // COMPUTEDS..................................................................
 
@@ -33,16 +38,23 @@ class SettingsStore {
     // }
   }
 
-  setAudioSource = (audioSource) => {
-    this.audioSource = audioSource;
+  setAudioSource = (deviceId) => {
+    this.audioSource = deviceId;
+  }
+
+  setAudioDevices = (devices = []) => {
+    console.log(devices)
+    this.audioDevices = devices;
   }
 }
 
 decorate(SettingsStore, {
   language: observable,
   audioSource: observable,
+  audioDevices: observable,
   setLanguage: action,
   setAudioSource: action,
+  setAudioDevices: action,
 });
 
 export default SettingsStore;
