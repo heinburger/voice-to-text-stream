@@ -1,4 +1,4 @@
-import { decorate, computed } from 'mobx';
+import { decorate } from 'mobx';
 
 class TranslateStore {
   constructor(appStore) {
@@ -9,11 +9,20 @@ class TranslateStore {
     'Voice to text': {
       'de-DE': 'Stimme zum Text',
     },
+    'Language': {
+      'de-DE': 'Sprache',
+    },
+    'localStorage support': {
+      'de-DE': 'Speicherunterstützung',
+    },
+    'Speech recognition support': {
+      'de-DE': 'Spracherkennungsunterstützung',
+    },
   };
 
   getText = (key= '') => {
-    if (this.translations[key] && this.translations[key][this.language]) {
-      return this.translations[key][this.language];
+    if (this.translations[key] && this.translations[key][this.appStore.settings.language]) {
+      return this.translations[key][this.appStore.settings.language];
     }
     return key;
   }
@@ -21,15 +30,13 @@ class TranslateStore {
   // OBSERVABLES................................................................
 
   // COMPUTEDS..................................................................
-  get language() {
-    return this.appStore.settings.language
-  }
+
   // ACTIONS....................................................................
 
 }
 
 decorate(TranslateStore, {
-  language: computed,
+
 });
 
 export default TranslateStore;

@@ -22,10 +22,10 @@ const StyledFormControl = withStyles(styles)(({ classes, ...rest }) => (
 
 class SelectLang extends React.Component {
   render() {
-    const { settings } = this.props
+    const { settings, translate } = this.props
     return (
       <StyledFormControl>
-        <InputLabel htmlFor="language-simple">Language</InputLabel>
+        <InputLabel htmlFor="language-simple">{translate.getText('Language')}</InputLabel>
         <Select
           value={settings.language}
           onChange={this._handleChange}
@@ -51,6 +51,7 @@ class SelectLang extends React.Component {
 
 SelectLang.propTypes = {
   settings: PropTypes.object.isRequired,
+  translate: PropTypes.object.isRequired,
 }
 
-export default inject('settings')(observer(SelectLang));
+export default inject('settings', 'translate')(observer(SelectLang));

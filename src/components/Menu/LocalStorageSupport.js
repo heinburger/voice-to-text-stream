@@ -22,10 +22,10 @@ const StyledTypography = withStyles(styles)(({ classes, ...rest }) => (
 
 class LocalStorageSupport extends React.Component {
   render() {
-    const { settings } = this.props
+    const { settings, translate } = this.props
     return (
       <StyledTypography>
-        localStorage support
+        {translate.getText('localStorage support')}
       </StyledTypography>
     );
   }
@@ -33,6 +33,7 @@ class LocalStorageSupport extends React.Component {
 
 LocalStorageSupport.propTypes = {
   settings: PropTypes.object.isRequired,
+  translate: PropTypes.object.isRequired,
 }
 
-export default inject('settings')(observer(LocalStorageSupport));
+export default inject('settings', 'translate')(observer(LocalStorageSupport));

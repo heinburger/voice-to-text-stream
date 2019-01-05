@@ -22,10 +22,10 @@ const StyledTypography = withStyles(styles)(({ classes, ...rest }) => (
 
 class SpeechRecognitionSupport extends React.Component {
   render() {
-    const { settings } = this.props
+    const { settings, translate } = this.props
     return (
       <StyledTypography>
-        Speech Recognition support
+        {translate.getText('Speech recognition support')}
       </StyledTypography>
     );
   }
@@ -33,6 +33,7 @@ class SpeechRecognitionSupport extends React.Component {
 
 SpeechRecognitionSupport.propTypes = {
   settings: PropTypes.object.isRequired,
+  translate: PropTypes.object.isRequired,
 }
 
-export default inject('settings')(observer(SpeechRecognitionSupport));
+export default inject('settings', 'translate')(observer(SpeechRecognitionSupport));

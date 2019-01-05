@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { inject } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -11,6 +11,7 @@ const styles = theme => ({
   drawerHeader: Object.assign({}, theme.mixins.gutters(), {
     display: 'flex',
     alignItems: 'center',
+    overflow: 'hidden',
   }),
   caption: {
     paddingLeft: `${theme.spacing.unit}px`,
@@ -25,7 +26,7 @@ const styles = theme => ({
   },
 });
 
-const Header = ({ classes, router }) => (
+const Header = ({ classes, router, translate }) => (
   <div className={classes.wrapper}>
     <div className={classes.drawerHeader}>
       <Typography
@@ -34,10 +35,7 @@ const Header = ({ classes, router }) => (
         noWrap
         onClick={() => router.goTo('/')}
       >
-        Voice to text
-      </Typography>
-      <Typography className={classes.caption} variant='caption' noWrap>
-        v0.2.0
+        {translate.getText('Voice to text')}
       </Typography>
     </div>
   </div>
@@ -46,6 +44,7 @@ const Header = ({ classes, router }) => (
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
   router: PropTypes.object.isRequired,
+  translate: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(inject('router')(Header));
+export default withStyles(styles)(inject('router', 'translate')(observer(Header)));

@@ -16,7 +16,7 @@ export const speechRecognitionSupported = () => {
                 window.webkitSpeechRecognition ||
                 window.mozSpeechRecognition ||
                 window.msSpeechRecognition ||
-                window.oSpeechRecognition)
+                window.oSpeechRecognition);
 }
 
 export const getBrowserSpeechRecognition = () => {
@@ -25,7 +25,7 @@ export const getBrowserSpeechRecognition = () => {
            window.webkitSpeechRecognition ||
            window.mozSpeechRecognition ||
            window.msSpeechRecognition ||
-           window.oSpeechRecognition
+           window.oSpeechRecognition;
   } else {
     console.error('Speech recognition is not supported');
   }
@@ -36,17 +36,22 @@ export const localStorageSupported = () => {
 }
 
 export const getLocalStorageByKey = (key) => {
-  if (localStorageSupported()) {
-    return window.localStorage.getItem(key)
-  } else {
-    console.error('localStorage is not supported')
+  let value;
+  try {
+    value = window.localStorage.getItem(key);
+  } catch (e) {
+    console.error(e)
+    return null;
   }
+  return value;
 };
 
 export const setLocalStorageByKey = (key, value) => {
-  if (localStorageSupported()) {
-    window.localStorage.setItem(key, value)
-  } else {
-    console.error('localStorage is not supported')
+  try {
+    window.localStorage.setItem(key, value);
+  } catch (e) {
+    console.error(e)
+    return false;
   }
+  return true;
 }
