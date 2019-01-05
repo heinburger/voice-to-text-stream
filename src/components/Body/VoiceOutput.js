@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import TextField from '@material-ui/core/TextField';
 
 class VoiceOutput extends Component {
   render() {
@@ -11,21 +12,35 @@ class VoiceOutput extends Component {
       this.refs.output.scrollTop = this.refs.output.scrollHeight;
     }
     return (
-      <div style={{ padding: '0 20px', flex: '1 1 auto', display: 'flex', alignItems: 'center', height: '100%', maxHeight: '500px', flexDirection: 'column' }}>
-        <textarea
-          ref='guess'
-          disabled
-          placeholder='guesses show up here... say things like "new paragraph" or "period" for punctuation'
-          style={{ backgroundColor: 'papayawhip', maxWidth: '700px', fontSize: '24px', width: '100%', flex: '1 1 30%', padding: '7px' }}
-          value={ guessText }
-          onChange={ () => false } />
-        <textarea
-          ref='output'
-          placeholder='...'
-          style={{ backgroundColor: 'whitesmoke', maxWidth: '700px', fontSize: '24px', width: '100%', flex: '1 1 70%', padding: '7px' }}
-          value={ text }
-          onChange={ this.handleOnChange }
-          onFocus={ this.handleOnFocus } />
+      <div>
+        <div>
+          <TextField
+            style={{ width: '100%' }}
+            ref='guess'
+            disabled
+            placeholder='guesses show up here... say things like "new paragraph" or "period" for punctuation'
+            label='guess'
+            InputLabelProps={{
+              shrink: true,
+            }}
+            multiline
+            value={ guessText }
+            onChange={ () => false } />
+        </div>
+        <div>
+          <TextField
+            style={{ width: '100%' }}
+            ref='output'
+            placeholder='...'
+            InputLabelProps={{
+              shrink: true,
+            }}
+            multiline
+            value={ text }
+            label='output'
+            onChange={ this.handleOnChange }
+            onFocus={ this.handleOnFocus } />
+        </div>
       </div>
     );
   }

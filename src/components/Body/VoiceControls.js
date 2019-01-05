@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import Button from '@material-ui/core/Button';
 
 class VoiceControls extends Component {
   render() {
     const { recording, clearText, text } = this.props.view;
     const { startRecognition, stopRecognition } = this.props.speechRecognition;
     return (
-      <div style={{ flex: '0 0 auto' }}>
-        {recording && (
-          <span className='circle' />
-        )}
-        <button
-          className='button'
+      <div>
+        <Button
+          variant='contained'
+          color='primary'
           disabled={ recording }
-          onClick={ startRecognition }>Start</button>
-        <button
-          className='button'
-          disabled={ !recording }
-          onClick={ stopRecognition }>Stop</button>
-        <button
-          className='button'
+          onClick={ startRecognition }>Start</Button>
+        <Button
+          variant='contained'
+          color='secondary'
+          onClick={ stopRecognition }>Stop</Button>
+        <Button
+          variant='contained'
           disabled={ !text }
-          onClick={ clearText }>Clear</button>
+          onClick={ clearText }>Clear</Button>
       </div>
     );
   }
