@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 import SelectLang from './SelectLang';
+import OnlineStatus from './OnlineStatus';
 import LocalStorageSupport from './LocalStorageSupport';
 import SpeechRecognitionSupport from './SpeechRecognitionSupport';
 import AudioSupport from './AudioSupport';
@@ -15,6 +16,7 @@ const styles = theme => ({
 
 const Settings = ({ classes }) => (
   <div className={classes.wrapper}>
+    <OnlineStatus />
     <LocalStorageSupport />
     <SpeechRecognitionSupport />
     <SelectLang />

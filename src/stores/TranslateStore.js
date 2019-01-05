@@ -12,6 +12,9 @@ class TranslateStore {
     'Language': {
       'de-DE': 'Sprache',
     },
+    'Online status': {
+      'de-DE': 'Online Status',
+    },
     'localStorage support': {
       'de-DE': 'Speicherunterstützung',
     },
@@ -32,6 +35,9 @@ class TranslateStore {
     },
     'Unknown': {
       'de-DE': 'Unbekannte',
+    },
+    'Request': {
+      'de-DE': 'Anfordern',
     },
   };
 

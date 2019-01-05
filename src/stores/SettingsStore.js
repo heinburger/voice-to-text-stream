@@ -1,13 +1,16 @@
-import { decorate, observable, computed, action } from 'mobx';
+import { decorate, observable, action } from 'mobx';
 import {
+  checkIfOnline,
+  setOnlineListener,
   localStorageSupported,
   getLocalStorageByKey,
   setLocalStorageByKey,
   speechRecognitionSupported,
-  audioSupported,
-  getAudioPermission,
+  permissionSupported,
   requestAudioPermission,
+  checkAudioPermission,
   setAudioPermissionListener,
+  audioSupported,
   getAudioDevices,
   setAudioDeviceListener,
 } from '../utils/browser'
@@ -17,30 +20,37 @@ const DEFAULT_LANGUAGE = 'de-DE';
 class SettingsStore {
   constructor(appStore) {
     this.appStore = appStore;
-    this.localStorageSupported = localStorageSupported();
-    this.speechRecognitionSupported = speechRecognitionSupported();
-    this.audioSupported = audioSupported();
-    this.updateAudioPermission = () => getAudioPermission().then(this.setAudioPermission);
-    this.requestAudioPermission = () => requestAudioPermission();
+    setOnlineListener(this.setOnlineStatus);
+
+    this.localStorageSupported = localStorageSupported;
+    this.speechRecognitionSupported = speechRecognitionSupported;
+    this.audioSupported = audioSupported;
+    this.permissionSupported = permissionSupported;
+
+    this.requestAudioPermission = () => requestAudioPermission().then(this.setAudioPermission);
+    this.updateAudioPermission = () => checkAudioPermission().then(this.setAudioPermission)
     this.updateAudioPermission();
     setAudioPermissionListener(this.updateAudioPermission);
+
     this.updateAudioDevices = () => getAudioDevices().then(this.setAudioDevices);
     this.updateAudioDevices();
     setAudioDeviceListener(this.updateAudioDevices);
   }
 
   // OBSERVABLES................................................................
+  onlineStatus = checkIfOnline();
   language = getLocalStorageByKey('language') || DEFAULT_LANGUAGE;
   audioSource = 'default';
   audioDevices = [];
-  audioPermission = {};
+  audioPermission = false;
 
   // COMPUTEDS..................................................................
-  get audioPermissionGranted () {
-    return this.audioPermission.state === 'granted'
-  }
 
   // ACTIONS....................................................................
+  setOnlineStatus = (status = false) => {
+    this.onlineStatus = status;
+  }
+
   setLanguage = (language = DEFAULT_LANGUAGE) => {
     setLocalStorageByKey('language', language);
     this.language = language;
@@ -57,18 +67,19 @@ class SettingsStore {
     this.audioDevices = devices;
   }
 
-  setAudioPermission = (permission = {}) => {
+  setAudioPermission = (permission = false) => {
     this.audioPermission = permission;
     this.updateAudioDevices();
   }
 }
 
 decorate(SettingsStore, {
+  onlineStatus: observable,
   language: observable,
   audioSource: observable,
   audioDevices: observable,
   audioPermission: observable,
-  audioPermissionGranted: computed,
+  setOnlineStatus: action,
   setLanguage: action,
   setAudioSource: action,
   setAudioDevices: action,
