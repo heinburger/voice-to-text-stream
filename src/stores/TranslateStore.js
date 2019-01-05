@@ -21,6 +21,9 @@ class TranslateStore {
     'Audio support': {
       'de-DE': 'Audio-Unterstützung',
     },
+    'Audio permission': {
+      'de-DE': 'Audio-Erlaubnis',
+    },
     'Audio source': {
       'de-DE': 'Audio quelle',
     },

@@ -60,6 +60,41 @@ export const audioSupported = () => {
   return typeof window.navigator !== 'undefined' && !!window.navigator.mediaDevices;
 }
 
+export async function getAudioPermission() {
+  try {
+    let permissionStatus = await window.navigator.permissions.query({ name: 'microphone' });
+    return permissionStatus;
+  } catch (e) {
+    console.log(e);
+    return {};
+  }
+}
+
+export const setAudioPermissionListener = (listener = () => false) => {
+  try {
+    window.navigator.permissions.query({ name: 'microphone' }).then((permissionStatus) => {
+      permissionStatus.onchange = listener;
+    })
+    return true
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+}
+
+export const requestAudioPermission = () => {
+  try {
+    window.navigator.mediaDevices.getUserMedia({ audio: true }).then((mediaStream) => {
+      const tracks = mediaStream.getAudioTracks();
+      tracks[0].stop()
+    })
+    return true
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+}
+
 export async function getAudioDevices() {
   try {
     let devices = await window.navigator.mediaDevices.enumerateDevices();

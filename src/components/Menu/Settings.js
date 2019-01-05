@@ -6,6 +6,7 @@ import SelectLang from './SelectLang';
 import LocalStorageSupport from './LocalStorageSupport';
 import SpeechRecognitionSupport from './SpeechRecognitionSupport';
 import AudioSupport from './AudioSupport';
+import AudioPermission from './AudioPermission';
 import SelectAudio from './SelectAudio';
 
 const styles = theme => ({
@@ -18,6 +19,7 @@ const Settings = ({ classes }) => (
     <SpeechRecognitionSupport />
     <SelectLang />
     <AudioSupport />
+    <AudioPermission />
     <SelectAudio />
   </div>
 );
