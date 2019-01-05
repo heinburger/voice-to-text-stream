@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 
-import './VoiceControls.css';
-
 class VoiceControls extends Component {
   render() {
     const { recording, clearText, text } = this.props.view;

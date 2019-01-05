@@ -8,6 +8,9 @@ class ViewStore {
   }
 
   // OBSERVABLES................................................................
+  recording = false;
+  text = '';
+  guessText = '';
   tempDrawerOpen = false;
   screenWidth = getScreenWidth();
   lightThemeActive = false;
@@ -33,9 +36,36 @@ class ViewStore {
   toggleLightTheme = () => {
     this.lightThemeActive = !this.lightThemeActive;
   };
+
+  setText = (text) => {
+    this.text = text;
+  };
+
+  clearText = () => {
+    this.text = '';
+  };
+
+  addText = (text) => {
+    this.text = this.text + text;
+  };
+
+  setGuessText = (text) => {
+    this.guessText = text || '...';
+  };
+
+  startRecording = () => {
+    this.recording = true;
+  };
+
+  stopRecording = () => {
+    this.recording = false;
+  };
 }
 
 decorate(ViewStore, {
+  recording: observable,
+  text: observable,
+  guessText: observable,
   tempDrawerOpen: observable,
   screenWidth: observable,
   lightThemeActive: observable,
@@ -44,6 +74,11 @@ decorate(ViewStore, {
   toggleTempDrawer: action,
   closeTempDrawer: action,
   toggleLightTheme: action,
+  setText: action,
+  clearText: action,
+  setGuessText: action,
+  startRecording: action,
+  stopRecording: action,
 });
 
 export default ViewStore;

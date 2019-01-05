@@ -54,9 +54,9 @@ class SettingsStore {
   setLanguage = (language = DEFAULT_LANGUAGE) => {
     setLocalStorageByKey('language', language);
     this.language = language;
-    // if (this.recognition) {
-    //   this.recognition.lang = lang;
-    // }
+    if (this.appStore.speechRecognition.recognition) {
+      this.appStore.speechRecognition.recognition.lang = language;
+    }
   }
 
   setAudioSource = (deviceId = '') => {

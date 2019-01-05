@@ -9,6 +9,7 @@ const StoreProvider = ({ store, children }) => (
     router={store.router}
     translate={store.translate}
     settings={store.settings}
+    speechRecognition={store.speechRecognition}
   >
     {children}
   </MobxProvider>

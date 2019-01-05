@@ -36,7 +36,7 @@ export const getBrowserSpeechRecognition = () => {
            window.msSpeechRecognition ||
            window.oSpeechRecognition;
   } else {
-    console.log('Speech recognition is not supported');
+    return null;
   }
 }
 
