@@ -20,6 +20,7 @@ class VoiceOutput extends Component {
             disabled
             placeholder='guesses show up here... say things like "new paragraph" or "period" for punctuation'
             label='guess'
+            rows='4'
             InputLabelProps={{
               shrink: true,
             }}
@@ -27,10 +28,11 @@ class VoiceOutput extends Component {
             value={ guessText }
             onChange={ () => false } />
         </div>
-        <div>
+        <div style={{ padding: '5px', backgroundColor: 'rgba(0,0,0,.1)' }}>
           <TextField
             style={{ width: '100%' }}
             ref='output'
+            rows='4'
             placeholder='...'
             InputLabelProps={{
               shrink: true,

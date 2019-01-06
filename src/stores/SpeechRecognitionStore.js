@@ -1,6 +1,5 @@
 import { decorate, observable, action } from 'mobx';
 import {
-  speechRecognitionSupported,
   getBrowserSpeechRecognition,
 } from '../utils/browser'
 
