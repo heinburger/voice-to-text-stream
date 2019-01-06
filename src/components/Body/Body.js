@@ -6,10 +6,10 @@ import VoiceOutput from './VoiceOutput';
 import VoiceControls from './VoiceControls';
 
 const Body = ({ router }) => (
-  <div>
+  <>
     <VoiceOutput />
     <VoiceControls />
-  </div>
+  </>
 );
 
 Body.propTypes = {

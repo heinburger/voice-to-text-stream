@@ -1,6 +1,6 @@
 import { decorate, observable, action, computed } from 'mobx';
 
-import { getScreenWidth } from '../utils/browser';
+import { getScreenWidth, getScreenHeight } from '../utils/browser';
 
 class ViewStore {
   constructor(appStore) {
@@ -13,6 +13,7 @@ class ViewStore {
   guessText = '';
   tempDrawerOpen = false;
   screenWidth = getScreenWidth();
+  screenHeight = getScreenHeight();
   lightThemeActive = false;
 
   // COMPUTEDS..................................................................
@@ -23,6 +24,7 @@ class ViewStore {
   // ACTIONS....................................................................
   onScreenResize = () => {
     this.screenWidth = getScreenWidth();
+    this.screenHeight = getScreenHeight();
   };
 
   toggleTempDrawer = () => {
@@ -68,6 +70,7 @@ decorate(ViewStore, {
   guessText: observable,
   tempDrawerOpen: observable,
   screenWidth: observable,
+  screenHeight: observable,
   lightThemeActive: observable,
   showTempDrawer: computed,
   onScreenResize: action,

@@ -3,22 +3,33 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
-  toolbar: theme.mixins.toolbar,
-  content: Object.assign({}, theme.mixins.gutters(), {
+  toolbar: Object.assign({}, theme.mixins.toolbar, {
+    flex: '0 0 auto',
+  }),
+  main: {
     backgroundColor: theme.palette.background.default,
     flex: '1 1 auto',
-  }),
+    overflow: 'auto',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  content: {
+    flex: '1 1 auto',
+    display: 'flex',
+    flexDirection: 'column',
+  },
 })
 
-const Content = ({ classes, children, disableGutters }) => (
-  <main className={!disableGutters && classes.content}>
+const Content = ({ classes, children }) => (
+  <main className={classes.main}>
     <div className={classes.toolbar} />
-    {children}
+    <div className={classes.content}>
+      {children}
+    </div>
   </main>
 )
 
 Content.propTypes = {
-  disableGutters: PropTypes.bool,
   children: PropTypes.element.isRequired,
   classes: PropTypes.object.isRequired,
 }

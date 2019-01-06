@@ -2,6 +2,10 @@ export const getScreenWidth = () => {
   return window.innerWidth;
 };
 
+export const getScreenHeight = () => {
+  return window.innerHeight;
+};
+
 export const setBodyColor = (color) => {
   document.body.style.background = color;
 };
