@@ -6,7 +6,7 @@ import {
   getLocalStorageByKey,
   setLocalStorageByKey,
   speechRecognitionSupported,
-  permissionSupported,
+  permissionsSupported,
   requestAudioPermission,
   checkAudioPermission,
   setAudioPermissionListener,
@@ -25,7 +25,7 @@ class SettingsStore {
     this.localStorageSupported = localStorageSupported;
     this.speechRecognitionSupported = speechRecognitionSupported;
     this.audioSupported = audioSupported;
-    this.permissionSupported = permissionSupported;
+    this.permissionsSupported = permissionsSupported;
 
     this.requestAudioPermission = () => requestAudioPermission().then(this.setAudioPermission);
     this.updateAudioPermission = () => checkAudioPermission().then(this.setAudioPermission)

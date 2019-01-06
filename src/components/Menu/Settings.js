@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import SelectLang from './SelectLang';
 import OnlineStatus from './OnlineStatus';
 import LocalStorageSupport from './LocalStorageSupport';
+import PermissionsSupport from './PermissionsSupport';
 import SpeechRecognitionSupport from './SpeechRecognitionSupport';
 import AudioSupport from './AudioSupport';
 import AudioPermission from './AudioPermission';
@@ -18,6 +19,7 @@ const Settings = ({ classes }) => (
   <div className={classes.wrapper}>
     <OnlineStatus />
     <LocalStorageSupport />
+    <PermissionsSupport />
     <SpeechRecognitionSupport />
     <SelectLang />
     <AudioSupport />
