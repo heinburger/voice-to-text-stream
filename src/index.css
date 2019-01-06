@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-html, #root {
-  height: 100%;
-}
-
 body {
   height: 100%;
   margin: 0;
@@ -21,9 +17,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-select:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
