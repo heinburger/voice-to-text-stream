@@ -1,3 +1,10 @@
+const logError = (e) => {
+  // make this better:
+  if (process.env.NODE_ENV !== 'test') {
+    console.error(e)
+  }
+}
+
 export const getScreenWidth = () => {
   return window.innerWidth;
 };
@@ -52,7 +59,7 @@ export const getLocalStorageByKey = (key) => {
   try {
     value = window.localStorage.getItem(key);
   } catch (e) {
-    console.log(e)
+    logError(e)
     return null;
   }
   return value;
@@ -62,7 +69,7 @@ export const setLocalStorageByKey = (key, value) => {
   try {
     window.localStorage.setItem(key, value);
   } catch (e) {
-    console.log(e)
+    logError(e)
     return false;
   }
   return true;
@@ -77,7 +84,7 @@ export async function getAudioPermission() {
     let permissionStatus = await window.navigator.permissions.query({ name: 'microphone' });
     return permissionStatus;
   } catch (e) {
-    console.log(e);
+    logError(e);
     return {};
   }
 }
@@ -91,7 +98,7 @@ export async function requestAudioPermission() {
     }
     return true;
   } catch (e) {
-    console.log(e);
+    logError(e);
     return false;
   }
 }
@@ -112,7 +119,7 @@ export async function setAudioPermissionListener(listener = () => false) {
     permissionStatus.onchange = listener;
     return true
   } catch (e) {
-    console.log(e);
+    logError(e);
     return false;
   }
 }
@@ -126,7 +133,7 @@ export async function getAudioDevices() {
     let devices = await window.navigator.mediaDevices.enumerateDevices();
     return devices.filter((d) => d.kind === 'audioinput' && d.deviceId !== 'default');
   } catch (e) {
-    console.log(e);
+    logError(e);
     return [];
   }
 }
@@ -136,7 +143,7 @@ export const setAudioDeviceListener = (listener = () => false) => {
     window.navigator.mediaDevices.ondevicechange = listener
     return true
   } catch (e) {
-    console.log(e);
+    logError(e);
     return false;
   }
 }

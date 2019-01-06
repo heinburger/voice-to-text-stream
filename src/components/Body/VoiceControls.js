@@ -31,7 +31,7 @@ const StyledFabContainer = withStyles(styles)(({ classes, ...rest }) => (
   />
 ));
 
-const VoiceControls = ({ view, speechRecognition, translate }) => {
+const VoiceControls = ({ view, speechRecognition, translate, settings }) => {
   const { recording, clearText, text, screenWidth } = view;
   const { startRecognition, stopRecognition } = speechRecognition;
   return (
@@ -44,6 +44,7 @@ const VoiceControls = ({ view, speechRecognition, translate }) => {
         : <StyledFab
           size={screenWidth < 600 ? 'small' : 'large'}
           color='primary'
+          disabled={!settings.isOnline}
           onClick={ startRecognition }><MicIcon /></StyledFab>
       }
       <StyledFab
@@ -57,4 +58,4 @@ const VoiceControls = ({ view, speechRecognition, translate }) => {
   );
 }
 
-export default inject('view', 'speechRecognition', 'translate')(observer(VoiceControls));
+export default inject('view', 'speechRecognition', 'settings', 'translate')(observer(VoiceControls));

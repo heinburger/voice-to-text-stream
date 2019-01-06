@@ -1,4 +1,4 @@
-import { decorate, observable, action } from 'mobx';
+import { decorate, observable, action, autorun } from 'mobx';
 import {
   getBrowserSpeechRecognition,
 } from '../utils/browser'
@@ -6,6 +6,11 @@ import {
 class SpeechRecognitionStore {
   constructor(appStore) {
     this.appStore = appStore;
+    autorun(() => {
+      if (this.appStore.settings && !this.appStore.settings.isOnline) {
+        this.stopRecognition();
+      }
+    });
   }
 
   initRecognition = () => {

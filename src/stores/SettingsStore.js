@@ -38,7 +38,7 @@ class SettingsStore {
   }
 
   // OBSERVABLES................................................................
-  onlineStatus = checkIfOnline();
+  isOnline = checkIfOnline();
   language = getLocalStorageByKey('language') || DEFAULT_LANGUAGE;
   audioSource = 'default';
   audioDevices = [];
@@ -48,7 +48,7 @@ class SettingsStore {
 
   // ACTIONS....................................................................
   setOnlineStatus = (status = false) => {
-    this.onlineStatus = status;
+    this.isOnline = status;
   }
 
   setLanguage = (language = DEFAULT_LANGUAGE) => {
@@ -74,7 +74,7 @@ class SettingsStore {
 }
 
 decorate(SettingsStore, {
-  onlineStatus: observable,
+  isOnline: observable,
   language: observable,
   audioSource: observable,
   audioDevices: observable,

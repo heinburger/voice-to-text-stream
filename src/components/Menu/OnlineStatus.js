@@ -9,7 +9,7 @@ class OnlineStatus extends React.Component {
     return (
       <StyledCaption>
         {translate.getText('Online status')}
-        {settings.onlineStatus ? ' 👍' : ' 👎'}
+        {settings.isOnline ? ' 👍' : ' 👎'}
       </StyledCaption>
     );
   }

@@ -21,7 +21,7 @@ const StyledTextField = withStyles(styles)(({ classes, ...rest }) => (
 
 class VoiceOutput extends Component {
   render() {
-    const { text, guessText, inputRows } = this.props.view;
+    const { text, guessText, inputRowsGuess, inputRowsOutput } = this.props.view;
     const { translate } = this.props;
     if (this.guess) {
       this.guess.scrollTop = this.guess.scrollHeight;
@@ -30,28 +30,28 @@ class VoiceOutput extends Component {
       this.output.scrollTop = this.output.scrollHeight;
     }
     return (
-      <div style={{ flex: '1 0 auto', display: 'flex', flexWrap: 'wrap' }}>
+      <div style={{ flex: '0 0 auto', display: 'flex', flexWrap: 'wrap' }}>
         <StyledTextField
           variant='filled'
           inputRef={(guess) => this.guess = guess}
-          rows={inputRows}
+          rows={inputRowsGuess}
           disabled
           placeholder={translate.getText('Guesses show up here... say things like "new paragraph" or "period" for punctuation')}
-          label={translate.getText('Guess')}
+          label={`${translate.getText('Guess')} 🤔`}
           multiline
           value={ guessText }
           onChange={ () => false } />
         <StyledTextField
           variant='filled'
           inputRef={(output) => this.output = output}
-          rows={inputRows}
+          rows={inputRowsOutput}
           placeholder='...'
           InputLabelProps={{
             shrink: true,
           }}
           multiline
           value={ text }
-          label={translate.getText('Output')}
+          label={`${translate.getText('Output')} 🤮`}
           onChange={ this.handleOnChange }
           onFocus={ this.handleOnFocus } />
       </div>

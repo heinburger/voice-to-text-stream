@@ -8,13 +8,13 @@ import ToggleLightThemeButton from './ToggleLightThemeButton';
 import GithubLinkButton from './GithubLinkButton';
 import MicButton from './MicButton';
 
-const Toolbar = ({ view, translate }) => (
+const Toolbar = ({ view, translate, settings }) => (
   <>
     {view.showTempDrawer
       ? <ToggleDrawerButton />
       : <React.Fragment />}
     {view.recording && <MicButton />}
-    <Title/>
+    <Title title={settings.isOnline ? '' : `(${translate.getText('Offline')})`} />
     <ToggleLightThemeButton />
     <GithubLinkButton />
   </>
@@ -25,4 +25,4 @@ Toolbar.propTypes = {
   translate: PropTypes.object.isRequired,
 };
 
-export default inject('view', 'translate')(observer(Toolbar));
+export default inject('view', 'translate', 'settings')(observer(Toolbar));

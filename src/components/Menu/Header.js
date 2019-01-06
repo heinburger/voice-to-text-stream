@@ -13,10 +13,6 @@ const styles = theme => ({
     alignItems: 'center',
     overflow: 'hidden',
   }),
-  caption: {
-    paddingLeft: `${theme.spacing.unit}px`,
-    paddingTop: `${theme.spacing.unit / 2}px`,
-  },
   h6: {
     cursor: 'pointer',
     '&:hover': {
@@ -26,19 +22,30 @@ const styles = theme => ({
   },
 });
 
-const Header = ({ classes, router, translate }) => (
+const StyledWrapper = withStyles(styles)(({ classes, children }) => (
   <div className={classes.wrapper}>
     <div className={classes.drawerHeader}>
-      <Typography
-        variant='h6'
-        className={classes.h6}
-        noWrap
-        onClick={() => router.goTo('/')}
-      >
-        {translate.getText('Voice to text')}
-      </Typography>
+      <span role='img' aria-label='robot' style={{ fontSize: '24px', paddingRight: '5px' }}>🤖</span>
+      {children}
     </div>
   </div>
+));
+
+const StyledH6 = withStyles(styles)(({ classes, ...rest }) => (
+  <Typography
+    variant='h6'
+    className={classes.h6}
+    noWrap
+    {...rest}
+  />
+));
+
+const Header = ({ classes, router, translate }) => (
+  <StyledWrapper>
+    <StyledH6 onClick={() => router.goTo('/')}>
+      {`${translate.getText('Voice to text')}`}
+    </StyledH6>
+  </StyledWrapper>
 );
 
 Header.propTypes = {
@@ -47,4 +54,4 @@ Header.propTypes = {
   translate: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(inject('router', 'translate')(observer(Header)));
+export default inject('router', 'translate')(observer(Header));

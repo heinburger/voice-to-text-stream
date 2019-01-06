@@ -21,9 +21,16 @@ class ViewStore {
     return this.screenWidth < 960;
   }
 
-  get inputRows() {
-    // const switch = screenWidth < 464 ? 2.5 : 1;
-    return (this.screenHeight - 130) / 19;
+  get inputRowsGuess() {
+    return this.screenWidth < 500
+      ? 2
+      : (this.screenHeight - 180) / 19;
+  }
+
+  get inputRowsOutput() {
+    return this.screenWidth < 500
+      ? (this.screenHeight - 225) / 19
+      : (this.screenHeight - 180) / 19;
   }
 
   // ACTIONS....................................................................
@@ -78,7 +85,8 @@ decorate(ViewStore, {
   screenHeight: observable,
   lightThemeActive: observable,
   showTempDrawer: computed,
-  inputRows: computed,
+  inputRowsGuess: computed,
+  inputRowsOutput: computed,
   onScreenResize: action,
   toggleTempDrawer: action,
   closeTempDrawer: action,

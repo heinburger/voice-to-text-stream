@@ -23,7 +23,7 @@ const StyledMessage = withStyles(styles)(({ classes, ...rest }) => (
 const NotSupported = ({ translate }) => (
   <StyledMessage>
     <MicOff style={{ verticalAlign: 'middle' }}/>
-    {` ${translate.getText('Speech recognition is not supported by your device.')}`}
+    {` ${translate.getText('Speech recognition is not supported by your device.')} 🤬`}
   </StyledMessage>
 );
 
