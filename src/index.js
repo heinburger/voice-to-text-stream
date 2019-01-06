@@ -12,4 +12,4 @@ ReactDOM.render(
 );
 
 // enable offline: unregister() to register()
-serviceWorker.unregister();
+serviceWorker.register();
