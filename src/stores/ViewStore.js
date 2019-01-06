@@ -21,6 +21,11 @@ class ViewStore {
     return this.screenWidth < 960;
   }
 
+  get inputRows() {
+    // const switch = screenWidth < 464 ? 2.5 : 1;
+    return (this.screenHeight - 130) / 19;
+  }
+
   // ACTIONS....................................................................
   onScreenResize = () => {
     this.screenWidth = getScreenWidth();
@@ -73,6 +78,7 @@ decorate(ViewStore, {
   screenHeight: observable,
   lightThemeActive: observable,
   showTempDrawer: computed,
+  inputRows: computed,
   onScreenResize: action,
   toggleTempDrawer: action,
   closeTempDrawer: action,

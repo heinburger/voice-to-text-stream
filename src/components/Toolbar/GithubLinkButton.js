@@ -7,7 +7,7 @@ const GithubLinkButton = () => (
   <IconButton
     color='inherit'
     aria-label='go to github'
-    onClick={() => navigateTo('https://github.com/heinburger/react-mobx-materialui-starter')}
+    onClick={() => navigateTo('https://github.com/heinburger/voice-to-text-stream')}
   >
     <Github />
   </IconButton>

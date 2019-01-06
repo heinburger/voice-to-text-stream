@@ -42,7 +42,7 @@ class SettingsStore {
   language = getLocalStorageByKey('language') || DEFAULT_LANGUAGE;
   audioSource = 'default';
   audioDevices = [];
-  audioPermission = false;
+  audioPermission = true;
 
   // COMPUTEDS..................................................................
 

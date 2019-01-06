@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 
+import NotSupported from './NotSupported';
 import VoiceOutput from './VoiceOutput';
 import VoiceControls from './VoiceControls';
 
-const Body = ({ router }) => (
-  <>
-    <VoiceOutput />
-    <VoiceControls />
-  </>
-);
-
-Body.propTypes = {
-  router: PropTypes.object.isRequired,
+const Body = ({ settings }) => {
+  return settings.speechRecognitionSupported
+    ? <><VoiceOutput /><VoiceControls /></>
+    : <NotSupported />
 };
 
-export default inject('router')(observer(Body));
+Body.propTypes = {
+  settings: PropTypes.object.isRequired,
+};
+
+export default inject('settings')(observer(Body));

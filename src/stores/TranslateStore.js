@@ -39,6 +39,15 @@ class TranslateStore {
     'Request': {
       'de-DE': 'Anfordern',
     },
+    'Guesses show up here... say things like "new paragraph" or "period" for punctuation': {
+      'de-DE': 'Vermutungen tauchen hier auf... sagen Dinge wie "neuer Absatz" oder "Punkt" für Interpunktion',
+    },
+    'Guess': {
+      'de-DE': 'Vermutung',
+    },
+    'Output': {
+      'de-DE': 'Ausgang',
+    },
   };
 
   getText = (key= '') => {

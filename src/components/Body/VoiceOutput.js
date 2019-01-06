@@ -5,8 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   textField: {
-    margin: `${theme.spacing.unit * 2}px`,
-    flex: '1 1 200px',
+    flex: '1 1 250px',
   },
 });
 
@@ -22,33 +21,43 @@ const StyledTextField = withStyles(styles)(({ classes, ...rest }) => (
 
 class VoiceOutput extends Component {
   render() {
-    const { text, guessText, screenHeight, screenWidth } = this.props.view
+    const { text, guessText, inputRows } = this.props.view;
+    const { translate } = this.props;
+    if (this.guess) {
+      this.guess.scrollTop = this.guess.scrollHeight;
+    }
+    if (this.output) {
+      this.output.scrollTop = this.output.scrollHeight;
+    }
     return (
       <div style={{ flex: '1 0 auto', display: 'flex', flexWrap: 'wrap' }}>
         <StyledTextField
           variant='filled'
-          rows={Math.floor((screenHeight - 200) / 19 / (screenWidth < 464 ? 2.5 : 1)) }
+          inputRef={(guess) => this.guess = guess}
+          rows={inputRows}
           disabled
-          placeholder='guesses show up here... say things like "new paragraph" or "period" for punctuation'
-          label='guess'
+          placeholder={translate.getText('Guesses show up here... say things like "new paragraph" or "period" for punctuation')}
+          label={translate.getText('Guess')}
           multiline
           value={ guessText }
           onChange={ () => false } />
         <StyledTextField
-          variant='outlined'
-          rows={Math.floor((screenHeight - 200) / 19 / (screenWidth < 464 ? 2.5 : 1))}
+          variant='filled'
+          inputRef={(output) => this.output = output}
+          rows={inputRows}
           placeholder='...'
           InputLabelProps={{
             shrink: true,
           }}
           multiline
           value={ text }
-          label='output'
+          label={translate.getText('Output')}
           onChange={ this.handleOnChange }
           onFocus={ this.handleOnFocus } />
       </div>
     );
   }
+
   handleOnChange = (e) => {
     const { recording, setText } = this.props.view;
     const { stopRecognition } = this.props.speechRecognition;
@@ -57,8 +66,8 @@ class VoiceOutput extends Component {
     } else {
       setText(e.target.value);
     }
-
   }
+
   handleOnFocus = (e) => {
     const { recording } = this.props.view;
     const { stopRecognition } = this.props.speechRecognition;
@@ -70,4 +79,4 @@ class VoiceOutput extends Component {
   }
 }
 
-export default inject('view', 'speechRecognition')(observer(VoiceOutput));;
+export default inject('view', 'translate', 'speechRecognition')(observer(VoiceOutput));;
