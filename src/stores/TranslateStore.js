@@ -18,6 +18,9 @@ class TranslateStore {
     'localStorage support': {
       'de-DE': 'Speicherunterstützung',
     },
+    'Permissions support': {
+      'de-DE': 'Erlaubnisunterstützung'
+    },
     'Speech recognition support': {
       'de-DE': 'Spracherkennungsunterstützung',
     },

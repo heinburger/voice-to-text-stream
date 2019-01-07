@@ -75,7 +75,7 @@ export const setLocalStorageByKey = (key, value) => {
   return true;
 }
 
-export const permissionSupported = typeof window !== 'undefined' &&
+export const permissionsSupported = typeof window !== 'undefined' &&
                                    typeof window.navigator !== 'undefined' &&
                                    !!window.navigator.permissions;
 
@@ -104,7 +104,7 @@ export async function requestAudioPermission() {
 }
 
 export async function checkAudioPermission() {
-  if (permissionSupported) {
+  if (permissionsSupported) {
     let permissionStatus = await getAudioPermission();
     return permissionStatus.state === 'granted';
   } else {
