@@ -40,7 +40,7 @@ const StyledH6 = withStyles(styles)(({ classes, ...rest }) => (
   />
 ));
 
-const Header = ({ classes, router, translate }) => (
+const Header = ({ router, translate }) => (
   <StyledWrapper>
     <StyledH6 onClick={() => router.goTo('/')}>
       {`${translate.getText('Voice to text')}`}
@@ -49,7 +49,6 @@ const Header = ({ classes, router, translate }) => (
 );
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired,
   router: PropTypes.object.isRequired,
   translate: PropTypes.object.isRequired,
 }

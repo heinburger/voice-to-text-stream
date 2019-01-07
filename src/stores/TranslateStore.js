@@ -48,6 +48,9 @@ class TranslateStore {
     'Output': {
       'de-DE': 'Ausgang',
     },
+    'Speech recognition is not supported by your device. Currently only desktop Chrome and android Chrome support this technology.': {
+      'de-DE': 'Die Spracherkennung wird von Ihrem Gerät nicht unterstützt. Derzeit unterstützen nur Desktop Chrome und Android Chrome diese Technologie.'
+    }
   };
 
   getText = (key= '') => {
