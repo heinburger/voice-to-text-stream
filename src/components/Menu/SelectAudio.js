@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 import { withStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
@@ -25,6 +24,7 @@ class SelectAudio extends React.Component {
       <StyledFormControl>
         <InputLabel htmlFor="audio-simple">{ translate.getText('Audio source') }</InputLabel>
         <Select
+          native
           value={settings.audioSource}
           onChange={this._handleChange}
           inputProps={{
@@ -32,10 +32,10 @@ class SelectAudio extends React.Component {
             id: 'audio-simple',
           }}
         >
-          <MenuItem key='default' value='default'>{ translate.getText('Default') }</MenuItem>
+          <option key='default' value='default'>{ translate.getText('Default') }</option>
           {
             settings.audioDevices.map((device) => (
-              <MenuItem key={ device.deviceId } value={ device.deviceId }>{ device.label || translate.getText('Unknown') }</MenuItem>
+              <option key={ device.deviceId } value={ device.deviceId }>{ device.label || translate.getText('Unknown') }</option>
             ))
           }
         </Select>

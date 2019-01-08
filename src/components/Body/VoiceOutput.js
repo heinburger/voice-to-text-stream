@@ -20,15 +20,17 @@ const StyledTextField = withStyles(styles)(({ classes, ...rest }) => (
 ));
 
 class VoiceOutput extends Component {
-  render() {
-    const { text, guessText, inputRowsGuess, inputRowsOutput } = this.props.view;
-    const { translate } = this.props;
+  componentDidUpdate() {
     if (this.guess) {
       this.guess.scrollTop = this.guess.scrollHeight;
     }
     if (this.output) {
       this.output.scrollTop = this.output.scrollHeight;
     }
+  }
+  render() {
+    const { text, guessText, inputRowsGuess, inputRowsOutput } = this.props.view;
+    const { translate } = this.props;
     return (
       <div style={{ flex: '0 0 auto', display: 'flex', flexWrap: 'wrap' }}>
         <StyledTextField
